@@ -52,7 +52,7 @@
     >
       <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <ul class="space-y-2 font-medium">
-               <li class="rounded-lg pt-4">
+          <li class="rounded-lg pt-4">
             <div class="flex items-center justify-around">
               <img
                 src="../../public/images/logo-starbuck.png"
@@ -60,11 +60,10 @@
                 width="60px"
                 class="bg-slate-100 rounded-lg"
               />
-              <span class="ms-3 text-gray-200 ">ADMINISTRATOR</span>
+              <span class="ms-3 text-gray-200">ADMINISTRATOR</span>
             </div>
           </li>
           <li class="h-8"></li>
-
           <li>
             <a
               href="../index.html"
@@ -165,17 +164,29 @@
               <span class="flex-1 ms-3 whitespace-nowrap">Website</span>
             </a>
           </li>
-           <li>
-                    <a href="../homepage/homepage.html"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
-                        </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">HomePage</span>
-                    </a>
-                </li>
+          <li>
+            <a
+              href="../homepage/homepage.html"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <svg
+                class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 16"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
+                />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">HomePage</span>
+            </a>
+          </li>
           <li>
             <a
               href="../discountpage/dis_slider.html"
@@ -243,138 +254,199 @@
       <div class="showtb">
         <div class="popup" id="editPopup">
           <div class="popup-content" id="editPopupContent">
-            <button class="close-button" id="closeEditProduct">&times;</button>
             <h2>Edit Product</h2>
             <form id="editProductForm">
-              <div class="form-group">
+              <!-- id we hidden -->
+              <div class="form-group p-2 hidden">
+                <label for="editProNameInput">Id:</label>
                 <input
-                  type="hidden"
+                  style="width: 70%"
+                  disabled
+                  type="text"
                   id="editProIdInput"
                   placeholder="Enter product name"
                   required
                 />
               </div>
-              <div class="form-group">
-                <label for="editProNameInput">Product Name:</label>
+              <div class="form-grou flex justify-between p-2">
+                <label class="text-start" for="editProNameInput"
+                  >Product Name:</label
+                >
                 <input
                   type="text"
+                  style="width: 70%"
+                  class="w-12"
                   id="editProNameInput"
                   placeholder="Enter product name"
                   required
                 />
               </div>
-
-              <div class="form-group">
+              <div class="form-group flex justify-between p-2">
                 <label for="editProPriceInput">Price:</label>
                 <input
+                  style="width: 70%"
                   type="text"
                   id="editProPriceInput"
                   placeholder="Enter price"
                   required
                 />
               </div>
-              <div class="form-group">
+              <div class="form-group flex justify-between p-2">
                 <label for="editProCalInput">Calories:</label>
                 <input
+                  style="width: 70%"
                   type="text"
                   id="editProCalInput"
                   placeholder="Enter calories"
                   required
                 />
               </div>
-              <div class="form-group">
+              <div class="form-group flex justify-between p-2">
                 <label for="editProDesInput">Description:</label>
                 <input
+                  style="width: 70%"
                   type="text"
                   id="editProDesInput"
                   placeholder="Enter description"
                   required
                 />
               </div>
-              <div class="form-group">
-                <label for="editProDisInput">Discount:</label>
+              <div class="form-group flex justify-between p-2">
+                <label class="text-start" for="editProDisInput"
+                  >Discount:</label
+                >
                 <input
+                  style="width: 70%"
                   type="text"
                   id="editProDisInput"
                   placeholder="Enter discount"
                   required
                 />
               </div>
-              <button type="submit" id="editSubmitButton">Submit</button>
+              <div class="flex justify-evenly">
+                <button
+                  class="close-button"
+                  style="background-color: rgba(255, 0, 0, 0.596)"
+                  id="closeEditProduct"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  style="background-color: var(--colors-green-normal-active)"
+                  id="editSubmitButton"
+                >
+                  Update
+                </button>
+              </div>
             </form>
           </div>
         </div>
 
-        <!-- <div class="create-button1" id="createButton">Create New Product</div> -->
         <button class="create-button1" id="createButton">
           Create New Product <span class="plus-icon">+</span>
         </button>
-
+        <!-- popup create product -->
         <div class="popup" id="popup">
           <div class="popup-content">
-            <button class="close-button" id="closeEditProduct1">&times;</button>
-            <h2>Create New Product</h2>
+            <label>Create New Product</label>
             <form id="productForm">
-              <div class="form-group">
-                <label for="newProNameInput">Product Name:</label>
+              <div class="form-grou flex justify-between p-2">
+                <label class="text-start" for="newProNameInput"
+                  >Product Name:</label
+                >
                 <input
                   type="text"
+                  style="width: 70%"
                   id="newProNameInput"
                   placeholder="Enter product name"
                   required
                 />
               </div>
-              <div class="form-group">
-                <label for="newProCatSelect">Category:</label>
-                <select id="newProCatSelect" required>
-                  <!-- Categories will be populated dynamically -->
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="newProPriceInput">Price:</label>
+              <div class="form-group flex justify-between p-2">
+                <label class="text-start" for="newProPriceInput">Price:</label>
                 <input
                   type="text"
                   id="newProPriceInput"
+                  style="width: 70%"
                   placeholder="Enter price"
                   required
                 />
               </div>
-              <div class="form-group">
-                <label for="newProCalInput">Calories:</label>
+              <div class="form-group flex justify-between p-2">
+                <label class="text-start" for="newProCalInput">Calories:</label>
                 <input
                   type="text"
                   id="newProCalInput"
+                  style="width: 70%"
                   placeholder="Enter calories"
                   required
                 />
               </div>
-              <div class="form-group">
-                <label for="newProDesInput">Description:</label>
+              <!--  popup -->
+              <div class="form-group flex justify-between p-2">
+                <label class="text-start" for="newProDesInput"
+                  >Description:</label
+                >
                 <input
                   type="text"
                   id="newProDesInput"
+                  style="width: 70%"
                   placeholder="Enter description"
                   required
                 />
               </div>
-              <div class="form-group">
-                <label for="newProDisInput">Discount:</label>
+              <div class="form-group flex justify-between p-2">
+                <label class="text-start" for="newProDisInput">Discount:</label>
                 <input
                   type="text"
                   id="newProDisInput"
+                  style="width: 70%"
                   placeholder="Enter discount"
                   required
                 />
               </div>
-              <div class="form-group">
+              <div class="form-group flex justify-between p-2">
                 <label for="newProImgInput">Image:</label>
-                <input type="file" id="newProImgInput" accept="image/*" />
+                <input
+                  type="file"
+                  style="width: 70%"
+                  id="newProImgInput"
+                  accept="image/*"
+                />
               </div>
-              <button type="submit" id="submitButton">Submit</button>
+              <div class="form-group flex justify-between p-2">
+                <label for="newProCatSelect">Category:</label>
+                <select
+                  style="width: 70%"
+                  class="uppercase"
+                  id="newProCatSelect"
+                  required
+                >
+                  <!-- Categories will be populated dynamically -->
+                </select>
+              </div>
+              <div class="flex justify-evenly">
+                <button
+                  class="close-button"
+                  style="background-color: rgba(255, 0, 0, 0.596)"
+                  id="closeEditProduct1"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  style="background-color: var(--colors-green-normal-active)"
+                  id="submitButton"
+                >
+                  Submit
+                </button>
+              </div>
             </form>
           </div>
         </div>
-        <select id="categoryDropdown">
+
+        <select class="uppercase font-bold" id="categoryDropdown">
           <option value="all">All Categories</option>
           <!-- Categories will be populated dynamically via JavaScript -->
         </select>

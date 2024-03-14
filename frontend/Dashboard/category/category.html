@@ -256,59 +256,76 @@
         <button class="create-button1" id="createButton">
           Create New Category <span class="plus-icon">+</span>
         </button>
+
         <div class="popup" id="editPopup">
-          <div class="popup-content">
-            <button class="close-button" id="closeEditCategory">&times;</button>
-            <h2>Edit Category</h2>
+          <div class="popup-content h-[250px] p-5">
+            <label>Edit Category</label>
             <form id="editCategoryForm">
-              <div class="form-group">
-                <label for="editCatNameInput">New Category Name:</label>
+              <div class="form-group p-4">
+                <label  class="text-start" for="editCatNameInput">New Category Name:</label>
                 <input
                   type="text"
+                  class="w-12"
                   id="editCatNameInput"
                   placeholder="Enter new category name"
                   required
                 />
                 <input type="hidden" id="editCatIdInput" />
               </div>
-              <button type="submit" id="editSubmitButton">Submit</button>
+               <div class="gap5">
+                <button
+                  style="background-color: rgba(255, 0, 0, 0.596)"
+                  class="close-button"
+                  id="closeEditCategory"
+                >
+                  Cancel
+                </button>
+                <button
+                  style="background-color: var(--colors-green-normal-active)"
+                  type="submit"
+                  id="editSubmitButton"
+                >
+                  Submit
+                </button>
+              </div>
             </form>
           </div>
         </div>
 
         <div class="popup" id="popup">
-          <div class="popup-content">
-            <button class="close-button" id="closeCreateCategory">
-              &times;
-            </button>
+          <div class="popup-content h-[250px] p-5">
             <!-- Close button added -->
-            <h2>Create New Category</h2>
+            <label>Create New Category</label>
             <form id="categoryForm">
-              <div class="form-group">
-                <label for="newCatNameInput">Category Name:</label>
+              <div class="form-group p-4">
+                <label class="text-start" for="newCatNameInput"
+                  >Category Name:</label
+                >
                 <input
                   type="text"
+                  class="w-12"
                   id="newCatNameInput"
                   placeholder="Enter category name"
                   required
                 />
               </div>
-              <button type="submit" id="submitButton">Submit</button>
+              <div class="gap5">
+                <button
+                  style="background-color: rgba(255, 0, 0, 0.596)"
+                  class="close-button"
+                  id="closeCreateCategory"
+                >
+                  Cancel
+                </button>
+                <button
+                  style="background-color: var(--colors-green-normal-active)"
+                  type="submit"
+                  id="submitButton"
+                >
+                  Submit
+                </button>
+              </div>
             </form>
-          </div>
-        </div>
-
-        <div class="popup" id="editPopup">
-          <div class="popup-content">
-            <button class="close-button" id="closeEditCategory">&times;</button>
-            <!-- Close button added -->
-            <input
-              type="text"
-              id="editCatNameInput"
-              placeholder="Category Name"
-            />
-            <input type="hidden" id="editCatIdInput" />
-            <button id="editSubmitButton">Submit</button>
           </div>
         </div>
 

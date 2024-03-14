@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // Create a new FormData object to send data to the server
       var formData = new FormData();
       formData.append("cat_name", newCatName);
-
       // Send an HTTP POST request to the server
       fetch(
         "http://localhost/web-assignment-main/backend/api/category/create.php",
