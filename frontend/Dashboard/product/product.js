@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function fetchCategory() {
-  fetch("http://localhost/web-assignment-main/api/category/read.php")
+  fetch("http://localhost/web-assignment-main/backend/api/category/read.php")
     .then((response) => response.json())
     .then((data) => {
       const newProductCatSelect = document.getElementById("newProCatSelect");
