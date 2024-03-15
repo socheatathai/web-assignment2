@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
       formData.append("cat_name", newCatName);
       // Send an HTTP POST request to the server
       fetch(
-        "http://localhost/web-assignment-main/backend/api/category/create.php",
+        "http://localhost/web-assignment2/backend/api/category/create.php",
         {
           method: "POST",
           body: formData,
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to fetch categories from the server and populate the table
   function fetchCategories() {
-    fetch("http://localhost/web-assignment-main/backend/api/category/read.php")
+    fetch("http://localhost/web-assignment2/backend/api/category/read.php")
       .then((response) => response.json())
       .then((data) => {
         const categoriesTable = document.getElementById("categoriesTable");
@@ -105,7 +105,7 @@ function insertCategory() {
   formData.append("cat_name", newCatName);
 
   fetch(
-    "http://localhost/web-assignment-main/backend/api/category/create.php",
+    "http://localhost/web-assignment2/backend/api/category/create.php",
     {
       method: "POST",
       body: formData,
@@ -123,7 +123,7 @@ function insertCategory() {
 }
 
 function fetchCategories() {
-  fetch("http://localhost/web-assignment-main/backend/api/category/read.php")
+  fetch("http://localhost/web-assignment2/backend/api/category/read.php")
     .then((response) => response.json())
     .then((data) => {
       const categoriesTable = document.getElementById("categoriesTable");
@@ -180,7 +180,7 @@ function deleteCategory(catId) {
     .then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://localhost/web-assignment-main/backend/api/category/delete.php?cat_id=${catId}`,
+          `http://localhost/web-assignment2/backend/api/category/delete.php?cat_id=${catId}`,
           {
             method: "DELETE",
           }
@@ -228,7 +228,7 @@ document.getElementById("editCategoryForm").addEventListener("submit", function 
   formData.append("cat_id", catId);
   formData.append("cat_name", newCatName);
 
-  fetch("http://localhost/web-assignment-main/backend/api/category/update.php", {
+  fetch("http://localhost/web-assignment2/backend/api/category/update.php", {
       method: "POST",
       body: formData,
   })
