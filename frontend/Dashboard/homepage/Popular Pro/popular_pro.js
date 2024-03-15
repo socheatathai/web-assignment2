@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("pro_img", newProductImg);
   
         fetch(
-          "http://localhost/web-assignment-main/backend/api/product/create.php",
+          "http://localhost/web-assignment2/backend/api/product/create.php",
           {
             method: "POST",
             body: formData,
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   
   function fetchCategory() {
-      fetch("http://localhost/web-assignment-main/backend/api/category/read.php")
+      fetch("http://localhost/web-assignment2/backend/api/category/read.php")
         .then((response) => response.json())
         .then((data) => {
           const newProductCatSelect = document.getElementById("newProCatSelect");
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
   
   function fetchProducts() {
-      fetch("http://localhost/web-assignment-main/backend/api/product/read.php")
+      fetch("http://localhost/web-assignment2/backend/api/product/read.php")
         .then((response) => response.json())
         .then((data) => {
           if (data.product && data.product.length > 0) {
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
             sortedProducts.forEach((product) => {
               categoryPromises.push(
                 fetch(
-                  `http://localhost/web-assignment-main/backend/api/category/read_single.php?cat_id=${product.cat_id}`
+                  `http://localhost/web-assignment2/backend/api/category/read_single.php?cat_id=${product.cat_id}`
                 )
                   .then((response) => response.json())
                   .then((categoryData) => {
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
                           <td>${product.pro_cal}</td>
                           <td>${product.pro_des}</td>
                           <td>${product.pro_dis}</td>
-                          <td><img src="http://localhost/web-assignment-main/backend/api/image/${product.pro_img}" alt="Product Image" style="max-width: 100px;"></td>
+                          <td><img src="http://localhost/web-assignment2/backend/api/image/${product.pro_img}" alt="Product Image" style="max-width: 100px;"></td>
                           <td>
                             <button onclick="openAddProductModal(${product.pro_id}, '${product.pro_name}', ${product.pro_price}, ${product.pro_cal}, '${product.pro_des}', ${product.pro_dis})" class="edit-button">Edit</button>
                             <button onclick="deleteProduct(${product.pro_id})" class="delete-button">Delete</button>
@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const confirmation = confirm("Are you sure you want to delete this product?");
     if (confirmation) {
       fetch(
-        `http://localhost/web-assignment-main/backend/api/product/delete.php?pro_id=${proId}`,
+        `http://localhost/web-assignment2/backend/api/product/delete.php?pro_id=${proId}`,
         {
           method: "DELETE",
         }
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
       // Send the update request to the server
       fetch(
-        "http://localhost/web-assignment-main/backend/api/product/update.php",
+        "http://localhost/web-assignment2/backend/api/product/update.php",
         {
           method: "POST",
           body: formData,

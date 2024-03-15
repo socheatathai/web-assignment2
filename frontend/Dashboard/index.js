@@ -1,5 +1,5 @@
 // Fetch product count
-fetch("http://localhost/web-assignment-main/backend/api/product/count.php")
+fetch("http://localhost/web-assignment2/backend/api/product/count.php")
   .then((response) => response.json())
   .then((data) => {
     document.getElementById("productCount").innerText = data.count;
@@ -7,7 +7,7 @@ fetch("http://localhost/web-assignment-main/backend/api/product/count.php")
   .catch((error) => console.error("Error fetching product count:", error));
 
 // Fetch user count
-fetch("http://localhost/web-assignment-main/backend/api/user/count.php")
+fetch("http://localhost/web-assignment2/backend/api/user/count.php")
   .then((response) => response.json())
   .then((data) => {
     document.getElementById("userCount").innerText = data.count;
@@ -15,7 +15,7 @@ fetch("http://localhost/web-assignment-main/backend/api/user/count.php")
   .catch((error) => console.error("Error fetching user count:", error));
 
 // Fetch category count
-fetch("http://localhost/web-assignment-main/backend/api/category/count.php")
+fetch("http://localhost/web-assignment2/backend/api/category/count.php")
   .then((response) => response.json())
   .then((data) => {
     document.getElementById("categoryCount").innerText = data.count;
@@ -23,18 +23,18 @@ fetch("http://localhost/web-assignment-main/backend/api/category/count.php")
   .catch((error) => console.error("Error fetching category count:", error));
 
 // Fetch data from the product count API
-fetch("http://localhost/web-assignment-main/backend/api/product/count.php")
+fetch("http://localhost/web-assignment2/backend/api/product/count.php")
   .then((response) => response.json())
   .then((productData) => {
     const productCount = productData.count;
 
-    fetch("http://localhost/web-assignment-main/backend/api/user/count.php")
+    fetch("http://localhost/web-assignment2/backend/api/user/count.php")
       .then((response) => response.json())
       .then((userData) => {
         const userCount = userData.count;
 
         fetch(
-          "http://localhost/web-assignment-main/backend/api/category/count.php"
+          "http://localhost/web-assignment2/backend/api/category/count.php"
         )
           .then((response) => response.json())
           .then((categoryData) => {

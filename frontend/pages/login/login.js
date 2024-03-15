@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append("password", password);
 
         // Send AJAX request to the login PHP script
-        fetch("http://localhost/web-assignment-main/backend/api/user/login.php", {
+        fetch("http://localhost/web-assignment2/backend/api/user/login.php", {
             method: "POST",
             body: formData
         })
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Check if login was successful
             if (data.success) {
                 // Redirect the user to the home page
-                window.location.href = "../../Dashboard/index.html";
+                window.location.href = "http://127.0.0.1:5500/frontend/Dashboard/index.html";
             } else {
                 // Display an error message or handle the response accordingly
                 alert(data.message);

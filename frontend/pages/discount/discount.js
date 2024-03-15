@@ -16,7 +16,7 @@ function nextSlide() {
 }
 
 // Fetch data from the API and populate the slider
-fetch("http://localhost/web-assignment-main/backend/api/product/fetch_dis_slider.php")
+fetch("http://localhost/web-assignment2/backend/api/product/fetch_dis_slider.php")
     .then((response) => response.json())
     .then((data) => {
         const carouselContainer = document.querySelector(".carousel");
@@ -27,7 +27,7 @@ fetch("http://localhost/web-assignment-main/backend/api/product/fetch_dis_slider
                     <div class="carousel-item">
                         <div class="slide-main">
                             <div class="slider-left-img">
-                                <img src="http://localhost/web-assignment-main/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
+                                <img src="http://localhost/web-assignment2/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
                             </div>
                             <div class="slide-right-text">
                                 <div class="main-text">
@@ -54,7 +54,7 @@ fetch("http://localhost/web-assignment-main/backend/api/product/fetch_dis_slider
 
 
     function fetchDiscountProducts() {
-      fetch("http://localhost/web-assignment-main/backend/api/product/fetch_all_dis_pro.php")
+      fetch("http://localhost/web-assignment2/backend/api/product/fetch_all_dis_pro.php")
           .then((response) => response.json())
           .then((data) => {
               const discountContainer = document.querySelector(".row-style-all-discount");
@@ -65,7 +65,7 @@ fetch("http://localhost/web-assignment-main/backend/api/product/fetch_dis_slider
                           <div class="col-sm-12 col-md-4 col-lg-3" style="padding-top: 30px">
                               <div class="product-cart-all-discount">
                                   <a class="product-card-link-all-discount">
-                                      <img class="cart-image-all-disocunt" src="http://localhost/web-assignment-main/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
+                                      <img class="cart-image-all-disocunt" src="http://localhost/web-assignment2/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
                                       <h3>${product.pro_name}</h3>
                                       <p>${product.pro_cal} Calories</p>
                                       <div class="discount-tag">
