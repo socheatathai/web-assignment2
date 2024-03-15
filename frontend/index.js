@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Fetch data from the API
 // fetch('http://localhost/p1/api/product/read.php')
-fetch("http://localhost/web-assignment-main/backend/api/product/fetch_dis_pro_HP.php")
+fetch("http://localhost/web-assignment2/backend/api/product/fetch_dis_pro_HP.php")
   .then((response) => response.json())
   .then((data) => {
     // Filter products with discount and exclude those with category "Slider"
@@ -118,7 +118,7 @@ fetch("http://localhost/web-assignment-main/backend/api/product/fetch_dis_pro_HP
                         <i class="far fa-heart like-btn"></i>
                     </div>
                     <a class="product-card-link" href="../frontend/pages/detail-products/detail-product.html">
-                        <img class="cart-image" src="http://localhost/web-assignment-main/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
+                        <img class="cart-image" src="http://localhost/web-assignment2/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
                         <h3>${product.pro_name}</h3>
                         <p>${product.pro_cal} Calories</p>
                         <h4>${product.pro_price}$</h4>
@@ -136,7 +136,7 @@ fetch("http://localhost/web-assignment-main/backend/api/product/fetch_dis_pro_HP
   .catch((error) => console.error("Error fetching products:", error));
 
 fetch(
-  "http://localhost/web-assignment-main/backend/api/product/fetch_popular.php"
+  "http://localhost/web-assignment2/backend/api/product/fetch_popular.php"
 )
   .then((response) => response.json())
   .then((data) => {
@@ -162,7 +162,7 @@ fetch(
                                     <i class="far fa-heart like-btn"></i>
                                 </div>
                                 <a class="product-card-link" href="../frontend/pages/detail-products/detail-product.html">
-                                    <img class="cart-image" src="http://localhost/web-assignment-main/backend/api/image/${
+                                    <img class="cart-image" src="http://localhost/web-assignment2/backend/api/image/${
                                       product.pro_img
                                     }" alt="${product.pro_name}" />
                                     <h3>${product.pro_name}</h3>
@@ -181,7 +181,7 @@ fetch(
   })
   .catch((error) => console.error("Error fetching products:", error));
 
-fetch("http://localhost/web-assignment-main/backend/api/product/read.php")
+fetch("http://localhost/web-assignment2/backend/api/product/read.php")
   .then((response) => response.json())
   .then((data) => {
     const products = data.product; // Assuming the API response contains a 'product' array
@@ -207,7 +207,7 @@ fetch("http://localhost/web-assignment-main/backend/api/product/read.php")
                                     <i class="far fa-heart like-btn"></i>
                                 </div>
                                 <a class="product-card-link" href="../frontend/pages/detail-products/detail-product.html">
-                                    <img class="cart-image" src="http://localhost/web-assignment-main/backend/api/image/${
+                                    <img class="cart-image" src="http://localhost/web-assignment2/backend/api/image/${
                                       product.pro_img
                                     }" alt="${product.pro_name}" />
                                     <h3>${product.pro_name}</h3>
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const dotsContainer = document.querySelector(".slider-dots");
 
   fetch(
-    "http://localhost/web-assignment-main/backend/api/product/fetch_slider.php"
+    "http://localhost/web-assignment2/backend/api/product/fetch_slider.php"
   )
     .then((response) => response.json())
     .then((data) => {
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <a href="./pages/detail-products/detail-product.html" class="btn-buy-now-slide">Buy Now</a>
                             </div>
                             <div class="img-main-home-page">
-                                <img src="http://localhost/web-assignment-main/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
+                                <img src="http://localhost/web-assignment2/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
                             </div>
                         `;
         slider.appendChild(slide);
@@ -297,7 +297,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 fetch(
-  "http://localhost/web-assignment-main/backend/api/product/fetch_main_pro.php"
+  "http://localhost/web-assignment2/backend/api/product/fetch_main_pro.php"
 )
   .then((response) => response.json())
   .then((data) => {
@@ -321,7 +321,7 @@ fetch(
           <div class="container" style="overflow: hidden">
             <div class="greenTeaDetail">
               <div class="green-tea-img">
-                <img src="http://localhost/web-assignment-main/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
+                <img src="http://localhost/web-assignment2/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
               </div>
               <div class="text-green-tea">
                 <div class="text-title">
@@ -348,7 +348,7 @@ fetch(
   .catch((error) => console.error("Error fetching products:", error));
 
 fetch(
-  "http://localhost/web-assignment-main/backend/api/product/fetch_main_pro1.php"
+  "http://localhost/web-assignment2/backend/api/product/fetch_main_pro1.php"
 )
   .then((response) => response.json())
   .then((data) => {
@@ -394,7 +394,7 @@ fetch(
                   </div>
                 </div>
                 <div class="green-tea-img">
-                  <img src="http://localhost/web-assignment-main/backend/api/image/${
+                  <img src="http://localhost/web-assignment2/backend/api/image/${
                     product.pro_img
                   }" alt="${product.pro_name}" />
                 </div>

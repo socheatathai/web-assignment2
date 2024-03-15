@@ -33,7 +33,7 @@ fetchUsers(currentPage, usersPerPage);
 // Function to fetch users based on page number
 // Function to fetch users based on page number
 function fetchUsers(page, limit) {
-    fetch(`http://localhost/web-assignment-main/backend/api/user/fetch_user.php?page=${page}&limit=${limit}`)
+    fetch(`http://localhost/web-assignment2/backend/api/user/fetch_user.php?page=${page}&limit=${limit}`)
       .then((response) => response.json())
       .then((data) => {
         // Check if data is available and has users
@@ -105,7 +105,7 @@ function createUser() {
   const form = document.getElementById("userForm");
   const formData = new FormData(form);
 
-  fetch("http://localhost/web-assignment-main/backend/api/user/register.php", {
+  fetch("http://localhost/web-assignment2/backend/api/user/register.php", {
     method: "POST",
     body: formData,
   })
@@ -142,7 +142,7 @@ function deleteUser(userId) {
   const confirmation = confirm("Are you sure you want to delete this user?");
   if (confirmation) {
     fetch(
-      `http://localhost/web-assignment-main/backend/api/user/delete.php?user_id=${userId}`,
+      `http://localhost/web-assignment2/backend/api/user/delete.php?user_id=${userId}`,
       {
         method: "DELETE",
       }
@@ -194,7 +194,7 @@ document
     formData.append("username", username);
     formData.append("password", password);
 
-    fetch("http://localhost/web-assignment-main/backend/api/user/update.php", {
+    fetch("http://localhost/web-assignment2/backend/api/user/update.php", {
       method: "POST",
       body: formData,
     })
