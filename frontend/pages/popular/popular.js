@@ -17,7 +17,7 @@ function nextSlide() {
 
 // Fetch data from the API and populate the slider
 fetch(
-  "http://localhost/web-assignment-main/backend/api/product/fetch_pop_slider.php"
+  "http://localhost/web-assignment2/backend/api/product/fetch_pop_slider.php"
 )
   .then((response) => response.json())
   .then((data) => {
@@ -29,7 +29,7 @@ fetch(
                     <div class="carousel-item">
                         <div class="slide-main">
                             <div class="slider-left-img">
-                                <img src="http://localhost/web-assignment-main/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
+                                <img src="http://localhost/web-assignment2/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
                             </div>
                             <div class="slide-right-text">
                                 <div class="main-text">
@@ -55,7 +55,7 @@ fetch(
   .catch((error) => console.error("Error fetching products:", error));
 function fetchDiscountProducts() {
   fetch(
-    "http://localhost/web-assignment-main/backend/api/product/fetch_all_pop_pro.php"
+    "http://localhost/web-assignment2/backend/api/product/fetch_all_pop_pro.php"
   )
     .then((response) => response.json())
     .then((data) => {
@@ -69,7 +69,7 @@ function fetchDiscountProducts() {
                         <div class="col-sm-12 col-md-4 col-lg-3" style="padding-top: 30px">
                             <div class="product-cart-all-discount">
                                 <a class="product-card-link-all-discount">
-                                    <img class="cart-image-all-disocunt" src="http://localhost/web-assignment-main/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
+                                    <img class="cart-image-all-disocunt" src="http://localhost/web-assignment2/backend/api/image/${product.pro_img}" alt="${product.pro_name}" />
                                     <h3>${product.pro_name}</h3>
                                     <p>${product.pro_cal} Calories</p>
                                     <div class="discount-tag">
