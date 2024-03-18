@@ -5,11 +5,12 @@ your password
 your database name match with your phpmyadmin 
 
 example :
+create a file call name conection.php in folder config
 <?php
-$server = "localhost:3303";
+$server = "localhost";
 $username = "root";
 $password = "";
-$dbname = "p1";
+$dbname = "web1";
 $conn = new mysqli($server, $username, $password, $dbname);
 
 ?>
