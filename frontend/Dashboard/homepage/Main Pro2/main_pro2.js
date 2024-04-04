@@ -1,37 +1,3 @@
-// function fetchCategories() {
-//     fetch("http://localhost/web-assignment-main/backend/api/category/read.php")
-//       .then((response) => response.json())
-//       .then((data) => {
-//         const categoriesTable = document.getElementById("categoriesTable");
-//         const tbody = categoriesTable.getElementsByTagName("tbody")[0];
-//         tbody.innerHTML = ""; // Clear existing table rows
-
-//         // Filter categories to only include the category with the name "Slider"
-//         const sliderCategory = data.categories.find(category => category.cat_name === 'Slider');
-
-//         if (sliderCategory) {
-//           const row = document.createElement("tr");
-//           row.innerHTML = `
-//             <td>${sliderCategory.cat_id}</td>
-//             <td>${sliderCategory.cat_name}</td>
-//             <td>
-//               <button onclick="openModal(${sliderCategory.cat_id}, '${sliderCategory.cat_name}')" class="edit-button">Edit</button>
-//               <button onclick="deleteCategory(${sliderCategory.cat_id})" class="delete-button">Delete</button>
-//             </td>
-//           `;
-//           tbody.appendChild(row);
-//         } else {
-//           const row = document.createElement("tr");
-//           row.innerHTML = `<td colspan="3">No category found with the name "Slider"</td>`;
-//           tbody.appendChild(row);
-//         }
-//       })
-//       .catch((error) => {
-//         console.error("Error fetching data:", error);
-//       });
-//   }
-//   fetchCategories();
-
 document.addEventListener("DOMContentLoaded", function () {
     fetchCategory();
     // Add event listeners to all delete buttons
