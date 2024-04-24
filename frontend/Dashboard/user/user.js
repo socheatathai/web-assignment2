@@ -32,50 +32,55 @@ fetchUsers(currentPage, usersPerPage);
 
 // Function to fetch users based on page number
 // Function to fetch users based on page number
+
 function fetchUsers(page, limit) {
-    fetch(`http://localhost/web-assignment2/backend/api/user/fetch_user.php?page=${page}&limit=${limit}`)
-      .then((response) => response.json())
-      .then((data) => {
-        // Check if data is available and has users
-        if (data.users && data.users.length > 0) {
-          const usersTableBody = document.getElementById("usersTableBody");
-  
-          // Clear existing rows
-          usersTableBody.innerHTML = "";
-  
-          // Iterate over the fetched users and create table rows
-          data.users.forEach((user) => {
-            // Create a table row with user details
-            const row = document.createElement("tr");
-            row.innerHTML = `
-              <td>${user.id}</td>
-              <td>${user.name}</td>
-              <td>${user.username}</td>
-              <td>${user.password}</td>
-              <td>
-                <button onclick="openUpdateModal('${user.id}','${user.name}','${user.username}','${user.password}')" class="edit-button">Edit</button>
-                <button onclick="deleteUser(${user.id})" class="delete-button">Delete</button>
-              </td>
-            `;
-            usersTableBody.appendChild(row); // Append the row to the table body
-          });
-  
-          // Update pagination UI
-          totalPages = data.totalPages; // Update totalPages
-          updatePaginationUI();
-        } else {
-          // No users found, display a message
-          const usersTableBody = document.getElementById("usersTableBody");
-          usersTableBody.innerHTML = `<tr><td colspan="4">${data.message}</td></tr>`;
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-  }
-  
-  
-  
+  fetch(
+    `http://localhost/web-assignment2/backend/api/user/fetch_user.php?page=${page}&limit=${limit}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      // Check if data is available and has users
+      if (data.users && data.users.length > 0) {
+        const usersTableBody = document.getElementById("usersTableBody");
+
+        // Clear existing rows
+        usersTableBody.innerHTML = "";
+
+        // Iterate over the fetched users and create table rows
+        data.users.forEach((user, index) => {
+          // Create a table row with user details
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${user.name}</td>
+            <td>${user.username}</td>
+            <td>${"*".repeat(user.password.length)}</td>
+            <td>
+              <button onclick="openUpdateModal('${user.id}','${user.name}','${
+            user.username
+          }','${user.password}')" class="edit-button">Edit</button>
+              <button onclick="deleteUser(${
+                user.id
+              })" class="delete-button">Delete</button>
+            </td>
+          `;
+          usersTableBody.appendChild(row); // Append the row to the table body
+        });
+
+        // Update pagination UI
+        totalPages = data.totalPages; // Update totalPages
+        updatePaginationUI();
+      } else {
+        // No users found, display a message
+        const usersTableBody = document.getElementById("usersTableBody");
+        usersTableBody.innerHTML = `<tr><td colspan="4">${data.message}</td></tr>`;
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching user data:", error);
+    });
+}
+
 // Update pagination UI
 function updatePaginationUI() {
   let pageNumbersHTML = "";

@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-
   var createButton = document.getElementById("createButton");
   var popup = document.getElementById("popup");
   var submitButton = document.getElementById("submitButton");
@@ -47,13 +46,10 @@ document.addEventListener("DOMContentLoaded", function () {
       formData.append("pro_dis", newProductDis);
       formData.append("pro_img", newProductImg);
 
-      fetch(
-        "http://localhost/web-assignment2/backend/api/product/create.php",
-        {
-          method: "POST",
-          body: formData,
-        }
-      )
+      fetch("http://localhost/web-assignment2/backend/api/product/create.php", {
+        method: "POST",
+        body: formData,
+      })
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -184,7 +180,7 @@ function fetchProducts() {
         const sortedProducts = data.product.sort((a, b) => b.pro_id - a.pro_id);
         const categoryPromises = [];
 
-        sortedProducts.forEach((product) => {
+        sortedProducts.forEach((product, index) => {
           categoryPromises.push(
             fetch(
               `http://localhost/web-assignment2/backend/api/category/read_single.php?cat_id=${product.cat_id}`
@@ -195,17 +191,25 @@ function fetchProducts() {
 
                 const row = document.createElement("tr");
                 row.innerHTML = `
-                  <td>${product.pro_id}</td>
+                  <td>${index + 1}</td>
                   <td>${product.pro_name}</td>
                   <td>${categoryName}</td>
                   <td>${product.pro_price}</td>
                   <td>${product.pro_cal}</td>
                   <td>${product.pro_des}</td>
                   <td>${product.pro_dis}</td>
-                  <td><img src="http://localhost/web-assignment2/backend/api/image/${product.pro_img}" alt="Product Image" style="max-width: 100px;"></td>
+                  <td><img src="http://localhost/web-assignment2/backend/api/image/${
+                    product.pro_img
+                  }" alt="Product Image" style="max-width: 100px;"></td>
                   <td>
-                    <button onclick="openAddProductModal(${product.pro_id}, '${product.pro_name}', ${product.pro_price}, ${product.pro_cal}, '${product.pro_des}', ${product.pro_dis})" class="edit-button">Edit</button>
-                    <button onclick="deleteProduct(${product.pro_id})" class="delete-button">Delete</button>
+                    <button onclick="openAddProductModal(${product.pro_id}, '${
+                  product.pro_name
+                }', ${product.pro_price}, ${product.pro_cal}, '${
+                  product.pro_des
+                }', ${product.pro_dis})" class="edit-button">Edit</button>
+                    <button onclick="deleteProduct(${
+                      product.pro_id
+                    })" class="delete-button">Delete</button>
                   </td>
                 `;
                 return row;
@@ -253,8 +257,6 @@ function deleteProduct(proId) {
       .catch((error) => {
         console.error("Error deleting product:", error);
       });
-      
-  
   }
 }
 
@@ -301,13 +303,10 @@ document
     formData.append("pro_dis", proDis);
 
     // Send the update request to the server
-    fetch(
-      "http://localhost/web-assignment2/backend/api/product/update.php",
-      {
-        method: "POST",
-        body: formData,
-      }
-    )
+    fetch("http://localhost/web-assignment2/backend/api/product/update.php", {
+      method: "POST",
+      body: formData,
+    })
       .then((response) => response.json())
       .then((data) => {
         alert(data.message); // Show success message

@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const sortedProducts = data.product.sort((a, b) => b.pro_id - a.pro_id);
             const categoryPromises = [];
     
-            sortedProducts.forEach((product) => {
+            sortedProducts.forEach((product,index) => {
               categoryPromises.push(
                 fetch(
                   `http://localhost/web-assignment2/backend/api/category/read_single.php?cat_id=${product.cat_id}`

@@ -1,39 +1,94 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the login form element
-    const loginForm = document.getElementById("loginform");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const loginForm = document.getElementById("loginform");
 
-    // Add event listener for form submission
-    loginForm.addEventListener("submit", function(event) {
-        // Prevent default form submission
-        event.preventDefault();
+//   loginForm.addEventListener("submit", function (event) {
+//     event.preventDefault();
 
-        // Retrieve the values of the username and password fields
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+//     const username = document.getElementById("username").value;
+//     const password = document.getElementById("password").value;
 
-        // Create a FormData object to send data via AJAX
-        const formData = new FormData();
-        formData.append("username", username);
-        formData.append("password", password);
+//     const formData = new FormData();
+//     formData.append("username", username);
+//     formData.append("password", password);
 
-        // Send AJAX request to the login PHP script
-        fetch("http://localhost/web-assignment2/backend/api/user/login.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Check if login was successful
-            if (data.success) {
-                // Redirect the user to the home page
-                window.location.href = "http://127.0.0.1:5500/frontend/Dashboard/index.html";
-            } else {
-                // Display an error message or handle the response accordingly
-                alert(data.message);
-            }
-        })
-        .catch(error => {
-            console.error("Error logging in:", error);
-        });
-    });
+//     fetch("http://localhost/web-assignment2/backend/api/user/login.php", {
+//       method: "POST",
+//       body: formData,
+//     })
+//       .then((response) => response.json())
+//       .then((data) => {
+//         console.log("Success:", data);
+         
+//         if (data.success) {
+//              console.log("User role:", data.role);
+//           // Check user role
+//           if (data.role.toLowerCase() === "admin") {
+//             // Redirect admin to the dashboard
+//             window.location.href =
+//               "http://127.0.0.1:5500/frontend/Dashboard/index.html";
+//           } else {
+//             console.log("Redirecting non-admin user to homepage...");
+//             // Redirect non-admin users to the homepage
+//             window.location.href = "http://127.0.0.1:5500/frontend/index.html";
+//           }
+//         } else {
+//           alert(data.message);
+//         }
+//       })
+//       .catch((error) => {
+//         console.error("Error logging in:", error);
+//       });
+//   });
+// });
+document.addEventListener("DOMContentLoaded", function () {
+  const loginForm = document.getElementById("loginform");
+  const showPasswordCheckbox = document.getElementById("showPassword");
+  const passwordInput = document.getElementById("password");
+
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = passwordInput.value;
+
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("password", password);
+
+    fetch("http://localhost/web-assignment2/backend/api/user/login.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+
+        if (data.success) {
+          console.log("User role:", data.role);
+          // Check user role
+          if (data.role.toLowerCase() === "admin") {
+            // Redirect admin to the dashboard
+            window.location.href =
+              "http://127.0.0.1:5500/frontend/Dashboard/index.html";
+          } else {
+            console.log("Redirecting non-admin user to homepage...");
+            // Redirect non-admin users to the homepage
+            window.location.href = "http://127.0.0.1:5500/frontend/index.html";
+          }
+        } else {
+          alert(data.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error logging in:", error);
+      });
+  });
+
+  showPasswordCheckbox.addEventListener("change", function () {
+    if (this.checked) {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  });
 });

@@ -62,14 +62,18 @@ document.addEventListener("DOMContentLoaded", function () {
         tbody.innerHTML = ""; // Clear existing table rows
 
         if (data.categories && data.categories.length > 0) {
-          data.categories.forEach((category) => {
+          data.categories.forEach((category, index) => {
             const row = document.createElement("tr");
             row.innerHTML = `
-                        <td>${category.cat_id}</td>
+                        <td>${index + 1}</td>
                         <td>${category.cat_name}</td>
                         <td>
-                          <button onclick="openModal(${category.cat_id}, '${category.cat_name}')" class="edit-button">Edit</button>
-                          <button onclick="deleteCategory(${category.cat_id})" class="delete-button">Delete</button>
+                          <button onclick="openModal(${category.cat_id}, '${
+              category.cat_name
+            }')" class="edit-button">Edit</button>
+                          <button onclick="deleteCategory(${
+                            category.cat_id
+                          })" class="delete-button">Delete</button>
                         </td>
                     `;
             tbody.appendChild(row);
@@ -89,14 +93,18 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchCategories();
 });
 // Close create category popup
-document.getElementById("closeCreateCategory").addEventListener("click", function() {
-  document.getElementById("popup").style.display = "none";
-});
+document
+  .getElementById("closeCreateCategory")
+  .addEventListener("click", function () {
+    document.getElementById("popup").style.display = "none";
+  });
 
 // Close edit category popup
-document.getElementById("closeEditCategory").addEventListener("click", function() {
-  document.getElementById("editPopup").style.display = "none";
-});
+document
+  .getElementById("closeEditCategory")
+  .addEventListener("click", function () {
+    document.getElementById("editPopup").style.display = "none";
+  });
 
 function insertCategory() {
   const newCatName = document.getElementById("newCatName").value;
@@ -104,13 +112,10 @@ function insertCategory() {
   const formData = new FormData();
   formData.append("cat_name", newCatName);
 
-  fetch(
-    "http://localhost/web-assignment2/backend/api/category/create.php",
-    {
-      method: "POST",
-      body: formData,
-    }
-  )
+  fetch("http://localhost/web-assignment2/backend/api/category/create.php", {
+    method: "POST",
+    body: formData,
+  })
     .then((response) => response.json())
     .then((data) => {
       alert(data.message);
@@ -132,7 +137,9 @@ function fetchCategories() {
 
       if (data.categories && data.categories.length > 0) {
         // Sort categories based on their IDs in descending order
-        const sortedCategories = data.categories.sort((a, b) => b.cat_id - a.cat_id);
+        const sortedCategories = data.categories.sort(
+          (a, b) => b.cat_id - a.cat_id
+        );
 
         sortedCategories.forEach((category) => {
           const row = document.createElement("tr");
@@ -156,7 +163,6 @@ function fetchCategories() {
       console.error("Error fetching data:", error);
     });
 }
-
 
 function deleteCategory(catId) {
   const swalWithBootstrapButtons = Swal.mixin({
@@ -218,30 +224,32 @@ function openModal(cat_id, cat_name) {
 }
 
 // Event listener for submitting the edit category form
-document.getElementById("editCategoryForm").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent default form submission behavior
+document
+  .getElementById("editCategoryForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
 
-  const catId = document.getElementById("editCatIdInput").value;
-  const newCatName = document.getElementById("editCatNameInput").value;
+    const catId = document.getElementById("editCatIdInput").value;
+    const newCatName = document.getElementById("editCatNameInput").value;
 
-  const formData = new FormData();
-  formData.append("cat_id", catId);
-  formData.append("cat_name", newCatName);
+    const formData = new FormData();
+    formData.append("cat_id", catId);
+    formData.append("cat_name", newCatName);
 
-  fetch("http://localhost/web-assignment2/backend/api/category/update.php", {
+    fetch("http://localhost/web-assignment2/backend/api/category/update.php", {
       method: "POST",
       body: formData,
-  })
-  .then((response) => response.json())
-  .then((data) => {
-      alert(data.message);
-      fetchCategories(); // Refresh category list after updating
-      closeEditCategoryModal(); // Close the edit modal after updating
-  })
-  .catch((error) => {
-      console.error("Error updating category:", error);
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert(data.message);
+        fetchCategories(); // Refresh category list after updating
+        closeEditCategoryModal(); // Close the edit modal after updating
+      })
+      .catch((error) => {
+        console.error("Error updating category:", error);
+      });
   });
-});
 
 // Function to close the edit category modal
 function closeEditCategoryModal() {
